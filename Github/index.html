@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Datos de Producción</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Datos de Producción</h1>
+    <table id="datos-tabla">
+        <thead>
+            <tr>
+                <th>Fecha y Hora</th>
+                <th>Word 40</th>
+                <th>Word 42</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        function cargarDatos() {
+            $.getJSON('C:\Users\mding\Desktop\CARLOS\Scada\Micro_Scada\reporte_2025-03-15.json', function(data) {
+                var filas = '';
+                $.each(data, function(i, item) {
+                    filas += '<tr>';
+                    filas += '<td>' + item.fecha_hora + '</td>';
+                    filas += '<td>' + item.word40 + '</td>';
+                    filas += '<td>' + item.word42 + '</td>';
+                    filas += '</tr>';
+                });
+                $('#datos-tabla tbody').html(filas);
+            });
+        }
+
+        $(document).ready(function() {
+            cargarDatos();
+            setInterval(cargarDatos, 5000);
+        });
+    </script>
+</body>
+</html>
