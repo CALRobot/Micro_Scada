@@ -36,10 +36,11 @@ Notas:
 
 Contacto:
 
-[Carlos Alberto Lara de GitHub]
-[laracarlosalberto@ymail.com  ]
+[ Carlos Alberto Lara de GitHub ]
+[ laracarlosalberto@ymail.com ]
+[ calingrobot@gmail.com ]
 
-Puntos clave:
+Puntos claves:
 
     Conciso y directo al grano.
     Lista clara de requisitos.
